@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/llContent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
@@ -31,7 +32,6 @@
         android:orientation="horizontal"
         android:gravity="center">
         <Button
-            android:onClick="AddFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="add fragment A"
@@ -39,9 +39,7 @@
             >
 
         </Button>
-
         <Button
-            android:onClick="AddFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="add fragment B"
@@ -51,18 +49,5 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/actMain_framFragmentA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/actMain_framFragmentB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </FrameLayout>
-
-
+// khi ađ 1 fragment ađ vào view chả của layout acvity không đặt như lúc này của m, hiểu nôm na m có 1 cái nhà trong cái nhà m thích nhét cái gì cũng đc vào trong nhà của
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.fragmentdemo;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+
+import java.util.Objects;
 
 public class FragmentA extends Fragment {
 
@@ -19,6 +23,12 @@ public class FragmentA extends Fragment {
     EditText edtTextFragmanetA;
     Button btnFragmentA;
 
+    public static FragmentA newInstance(FragmentA fragmentA, String text) {
+        Bundle bundle = new Bundle();
+        bundle.putString("Text", text);
+        fragmentA.setArguments(bundle);
+        return fragmentA;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,9 +44,8 @@ public class FragmentA extends Fragment {
         btnFragmentA = view.findViewById(R.id.framentA_btnFagment);
 
         Bundle bundle = getArguments();
-        if (bundle != null)
-        {
-            tvFragmentA.setText(bundle.getString("TextA"));
+        if (bundle!= null){
+            tvFragmentA.setText(bundle.getString("Text"));
         }
 
         btnFragmentA.setOnClickListener(new View.OnClickListener() {
@@ -49,23 +58,8 @@ public class FragmentA extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
 
-    }
-
-    public void SetContent(String content){
-        tvFragmentA.setText(content);
     }
 }
